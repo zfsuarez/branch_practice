@@ -1,0 +1,32 @@
+---
+title: "Web Page Example"
+author: "Joel Ross"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+
+## GitHub Pages
+
+This is a basic R Markdown document to demonstrate hosting on GitHub Pages.
+
+Below is my favorite chart:
+
+```{r chart, echo = FALSE}
+# Hadley's favourite pie chart
+df <- data.frame(
+  variable = c("does not resemble Pacman", "resembles Pacman"),
+  value = c(20, 80)
+)
+ggplot(df, aes(x = "", y = value, fill = variable)) +
+  geom_col(width = 1) +
+  scale_fill_manual(values = c("red", "yellow")) +
+  coord_polar("y", start = pi/1.5) +
+  labs(title = "% of Chart that Resembles Pacman") +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank())
+```
